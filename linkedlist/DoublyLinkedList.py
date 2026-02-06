@@ -4,12 +4,12 @@ A doubly linked list implementation.
 @author me
 """
 class DoublyLinkedList:
-    size_of_list: int = 0
-    head = None
-    tail = None
-
+    
     def __init__(self):
-        pass
+        self.size_of_list: int = 0
+        self.head = None
+        self.tail = None
+
 
     # Internal node class to represent data
     class Node:

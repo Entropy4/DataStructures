@@ -1,5 +1,4 @@
 class BinaryHeapManual:
-    heap = None
 
     def __init__(self, elems=None):
         if elems is not None:

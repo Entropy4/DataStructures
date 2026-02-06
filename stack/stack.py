@@ -21,7 +21,6 @@ reverse()	            Reverses the elements of the deque in place.	             
 
 
 class Stack:
-    data = None
 
     def __init__(self, data=None): # data is iterable
         if data is None:

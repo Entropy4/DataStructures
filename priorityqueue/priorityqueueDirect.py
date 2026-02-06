@@ -17,7 +17,7 @@ merge(*iterables, key=None)	        O(N log K) where N is the total elements and
 
 '''
 class BinaryHeap:
-    heap: list = None
+
 
     def __init__(self, data=None): #data expected to be a list
         if data is not None:

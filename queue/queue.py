@@ -1,8 +1,7 @@
 from collections import deque
 
 class Queue:
-    data = None
-    max_size = 0
+
 
     def __init__(self, max_size=10, data=None):
         self.max_size = max_size
