@@ -228,88 +228,88 @@ class BinarySearchTree:
 
 
 # testing
-def main():
-    bst = BinarySearchTree()
+# def main():
+#     bst = BinarySearchTree()
 
-    print("=== BST INITIAL STATE ===")
-    print("Empty?", bst.isEmpty())
-    print("Size:", bst.sizeOf())
-    print()
+#     print("=== BST INITIAL STATE ===")
+#     print("Empty?", bst.isEmpty())
+#     print("Size:", bst.sizeOf())
+#     print()
 
-    # ---------------- INSERT ----------------
-    values = [50, 30, 70, 20, 40, 60, 80]
-    print("Inserting values:", values)
-    for v in values:
-        print(f"Insert {v}:", bst.add(v))
+#     # ---------------- INSERT ----------------
+#     values = [50, 30, 70, 20, 40, 60, 80]
+#     print("Inserting values:", values)
+#     for v in values:
+#         print(f"Insert {v}:", bst.add(v))
 
-    print("\nTrying duplicate insert (30):", bst.add(30))
-    print("Size after inserts:", bst.sizeOf())
-    print("Empty?", bst.isEmpty())
-    print("Height:", bst.height())
-    print()
+#     print("\nTrying duplicate insert (30):", bst.add(30))
+#     print("Size after inserts:", bst.sizeOf())
+#     print("Empty?", bst.isEmpty())
+#     print("Height:", bst.height())
+#     print()
 
-    # ---------------- SEARCH ----------------
-    print("=== SEARCH TESTS ===")
-    print("Contains 40?", bst.contains(40))
-    print("Contains 100?", bst.contains(100))
-    print()
+#     # ---------------- SEARCH ----------------
+#     print("=== SEARCH TESTS ===")
+#     print("Contains 40?", bst.contains(40))
+#     print("Contains 100?", bst.contains(100))
+#     print()
 
-    # ---------------- MIN / MAX ----------------
-    print("=== MIN / MAX ===")
-    print("Min value:", bst.findMin(bst.root).data)
-    print("Max value:", bst.findMax(bst.root).data)
-    print()
+#     # ---------------- MIN / MAX ----------------
+#     print("=== MIN / MAX ===")
+#     print("Min value:", bst.findMin(bst.root).data)
+#     print("Max value:", bst.findMax(bst.root).data)
+#     print()
 
-    # ---------------- TRAVERSALS ----------------
-    print("=== TREE TRAVERSALS ===")
+#     # ---------------- TRAVERSALS ----------------
+#     print("=== TREE TRAVERSALS ===")
 
-    def print_traversal(order):
-        print(f"{order.capitalize()}:", end=" ")
-        it = bst.traverse(order)
-        while it.hasNext():
-            print(it.next(), end=" ")
-        print()
+#     def print_traversal(order):
+#         print(f"{order.capitalize()}:", end=" ")
+#         it = bst.traverse(order)
+#         while it.hasNext():
+#             print(it.next(), end=" ")
+#         print()
 
-    print_traversal('inorder')
-    print_traversal('preorder')
-    print_traversal('postorder')
-    print_traversal('levelorder')
-    print_traversal('reversed')
-    print()
+#     print_traversal('inorder')
+#     print_traversal('preorder')
+#     print_traversal('postorder')
+#     print_traversal('levelorder')
+#     print_traversal('reversed')
+#     print()
 
-    # ---------------- REMOVE LEAF ----------------
-    print("=== REMOVE LEAF NODE (20) ===")
-    bst.remove(20)
-    print_traversal('inorder')
-    print("Size:", bst.sizeOf())
-    print()
+#     # ---------------- REMOVE LEAF ----------------
+#     print("=== REMOVE LEAF NODE (20) ===")
+#     bst.remove(20)
+#     print_traversal('inorder')
+#     print("Size:", bst.sizeOf())
+#     print()
 
-    # ---------------- REMOVE NODE WITH ONE CHILD ----------------
-    print("=== REMOVE NODE WITH ONE CHILD (30) ===")
-    bst.remove(30)
-    print_traversal('inorder')
-    print("Size:", bst.sizeOf())
-    print()
+#     # ---------------- REMOVE NODE WITH ONE CHILD ----------------
+#     print("=== REMOVE NODE WITH ONE CHILD (30) ===")
+#     bst.remove(30)
+#     print_traversal('inorder')
+#     print("Size:", bst.sizeOf())
+#     print()
 
-    # ---------------- REMOVE NODE WITH TWO CHILDREN ----------------
-    print("=== REMOVE NODE WITH TWO CHILDREN (70) ===")
-    bst.remove(70)
-    print_traversal('inorder')
-    print("Size:", bst.sizeOf())
-    print()
+#     # ---------------- REMOVE NODE WITH TWO CHILDREN ----------------
+#     print("=== REMOVE NODE WITH TWO CHILDREN (70) ===")
+#     bst.remove(70)
+#     print_traversal('inorder')
+#     print("Size:", bst.sizeOf())
+#     print()
 
-    # ---------------- REMOVE ROOT ----------------
-    print("=== REMOVE ROOT NODE (50) ===")
-    bst.remove(50)
-    print_traversal('inorder')
-    print("Size:", bst.sizeOf())
-    print("Height:", bst.height())
-    print()
+#     # ---------------- REMOVE ROOT ----------------
+#     print("=== REMOVE ROOT NODE (50) ===")
+#     bst.remove(50)
+#     print_traversal('inorder')
+#     print("Size:", bst.sizeOf())
+#     print("Height:", bst.height())
+#     print()
 
-    # ---------------- FINAL STATE ----------------
-    print("=== FINAL TREE LEVEL ORDER ===")
-    print_traversal('levelorder')
+#     # ---------------- FINAL STATE ----------------
+#     print("=== FINAL TREE LEVEL ORDER ===")
+#     print_traversal('levelorder')
 
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()
