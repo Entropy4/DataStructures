@@ -1,4 +1,6 @@
 class QuickSort:
+    # Time complexity:  O(nlog(n))
+    # Space complexity: O(1)        <- inplace
     def __init__(self):
         pass
 
@@ -13,7 +15,7 @@ class QuickSort:
             self.quicksort(ar, lo, pivot_idx)
             self.quicksort(ar, pivot_idx + 1, hi)
     
-    # Performs Hoare partition algorithm for quicksort
+    # Performs Hoare partition algorithm for quicksort. O(n)
     def partition(self, ar:list, lo:int, hi:int) -> int:
         # storing arbitrary pivot value at start
         pivot = ar[lo]
