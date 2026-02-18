@@ -42,37 +42,37 @@ class QuickSort:
         ar[j] = tmp
 
 
+# # Testing code
+# import random
 
-import random
+# def main():
+#     qs = QuickSort()
 
-def main():
-    qs = QuickSort()
+#     test_cases = [
+#         [],                         # empty
+#         [1],                        # single element
+#         [5, 3, 8, 4, 2, 7, 1, 10],  # random
+#         [1, 2, 3, 4, 5, 6],         # already sorted
+#         [6, 5, 4, 3, 2, 1],         # reverse sorted
+#         [3, 3, 3, 3],               # all equal
+#         [5, 1, 3, 5, 2, 5, 4],      # duplicates
+#     ]
 
-    test_cases = [
-        [],                         # empty
-        [1],                        # single element
-        [5, 3, 8, 4, 2, 7, 1, 10],  # random
-        [1, 2, 3, 4, 5, 6],         # already sorted
-        [6, 5, 4, 3, 2, 1],         # reverse sorted
-        [3, 3, 3, 3],               # all equal
-        [5, 1, 3, 5, 2, 5, 4],      # duplicates
-    ]
+#     # also add some random tests
+#     for _ in range(5):
+#         arr = [random.randint(0, 50) for _ in range(random.randint(0, 15))]
+#         test_cases.append(arr)
 
-    # also add some random tests
-    for _ in range(5):
-        arr = [random.randint(0, 50) for _ in range(random.randint(0, 15))]
-        test_cases.append(arr)
+#     for idx, arr in enumerate(test_cases, 1):
+#         original = arr.copy()
+#         qs.sort(arr)
+#         expected = sorted(original)
 
-    for idx, arr in enumerate(test_cases, 1):
-        original = arr.copy()
-        qs.sort(arr)
-        expected = sorted(original)
+#         print(f"Test {idx}:")
+#         print("  Original :", original)
+#         print("  Sorted   :", arr)
+#         print("  Expected :", expected)
+#         print("  PASS" if arr == expected else "  FAIL", "\n")
 
-        print(f"Test {idx}:")
-        print("  Original :", original)
-        print("  Sorted   :", arr)
-        print("  Expected :", expected)
-        print("  PASS" if arr == expected else "  FAIL", "\n")
-
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()
