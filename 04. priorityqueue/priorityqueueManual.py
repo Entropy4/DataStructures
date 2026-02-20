@@ -115,56 +115,56 @@ class BinaryHeapManual:
         return removed_data
     
 
-# # Testing
-# def main():
-#     print("=== Creating heap with initial elements ===")
-#     initial = [5, 3, 8, 1, 2, 7]
-#     heap = BinaryHeapManual(initial)
-#     print("Initial heap array:", heap.heap)
-#     print("Peek (min element):", heap.peek())
-#     print("Size:", heap.size())
-#     print()
+# Testing
+def main():
+    print("=== Creating heap with initial elements ===")
+    initial = [5, 3, 8, 1, 2, 7]
+    heap = BinaryHeapManual(initial)
+    print("Initial heap array:", heap.heap)
+    print("Peek (min element):", heap.peek())
+    print("Size:", heap.size())
+    print()
 
-#     print("=== Adding elements ===")
-#     heap.add(0)
-#     heap.add(6)
-#     print("Heap after adding 0 and 6:", heap.heap)
-#     print("Peek:", heap.peek())
-#     print()
+    print("=== Adding elements ===")
+    heap.add(0)
+    heap.add(6)
+    print("Heap after adding 0 and 6:", heap.heap)
+    print("Peek:", heap.peek())
+    print()
 
-#     print("=== Contains check ===")
-#     print("Contains 7?", heap.contains(7))
-#     print("Contains 42?", heap.contains(42))
-#     print()
+    print("=== Contains check ===")
+    print("Contains 7?", heap.contains(7))
+    print("Contains 42?", heap.contains(42))
+    print()
 
-#     print("=== Polling elements (should come out in sorted order) ===")
-#     while not heap.isEmpty():
-#         print("Polled:", heap.poll(), "| Heap now:", heap.heap)
-#     print()
+    print("=== Polling elements (should come out in sorted order) ===")
+    while not heap.isEmpty():
+        print("Polled:", heap.poll(), "| Heap now:", heap.heap)
+    print()
 
-#     print("=== Testing remove(elem) ===")
-#     heap2 = BinaryHeapManual([10, 4, 15, 20, 0, 8])
-#     print("Heap2 initial:", heap2.heap)
-#     heap2.remove(15)
-#     print("After removing 15:", heap2.heap)
-#     heap2.remove(0)
-#     print("After removing 0 (root):", heap2.heap)
-#     print()
+    print("=== Testing remove(elem) ===")
+    heap2 = BinaryHeapManual([10, 4, 15, 20, 0, 8])
+    print("Heap2 initial:", heap2.heap)
+    heap2.remove(15)
+    print("After removing 15:", heap2.heap)
+    heap2.remove(0)
+    print("After removing 0 (root):", heap2.heap)
+    print()
 
-#     print("=== Testing removeAt(index) ===")
-#     heap3 = BinaryHeapManual([9, 3, 6, 2, 8, 5])
-#     print("Heap3 initial:", heap3.heap)
-#     removed = heap3.removeAt(2)
-#     print(f"Removed element at index 2 ({removed}):", heap3.heap)
-#     print()
+    print("=== Testing removeAt(index) ===")
+    heap3 = BinaryHeapManual([9, 3, 6, 2, 8, 5])
+    print("Heap3 initial:", heap3.heap)
+    removed = heap3.removeAt(2)
+    print(f"Removed element at index 2 ({removed}):", heap3.heap)
+    print()
 
-#     print("=== Clearing heap ===")
-#     heap3.clear()
-#     print("Heap3 after clear:", heap3.heap)
-#     print("Is empty?", heap3.isEmpty())
+    print("=== Clearing heap ===")
+    heap3.clear()
+    print("Heap3 after clear:", heap3.heap)
+    print("Is empty?", heap3.isEmpty())
 
 
-# if __name__ == "__main__":
-#     main()
+if __name__ == "__main__":
+    main()
 
 

@@ -87,104 +87,105 @@ class suffixArray:
     
 
 
-# # testing
+# testing
 
-# import random
-# import time
-# from copy import deepcopy
-
-
-# # ---------- Unique substrings ----------
-# def count_unique_substrings(text, sa, lcp):
-#     n = len(text)
-#     return n * (n + 1) // 2 - sum(lcp)
+import random
+import time
+from copy import deepcopy
 
 
-# # ---------- Build SA+LCP using slow ----------
-# def build_slow(text):
-#     sa_obj = suffixArray(text)
-#     sa_obj.construct("slow")
-#     sa = deepcopy(sa_obj.sa)
+# ---------- Main test suite ----------
+def main():
 
-#     sa_obj.kasai()
-#     lcp = deepcopy(sa_obj.lcp)
-
-#     return sa, lcp
+    # ---------- Unique substrings ----------
+    def count_unique_substrings(text, sa, lcp):
+        n = len(text)
+        return n * (n + 1) // 2 - sum(lcp)
 
 
-# # ---------- Validate suffix array ----------
-# def validate_suffix_array(text, sa):
-#     suffixes = [text[i:] for i in sa]
-#     return suffixes == sorted(suffixes)
+    # ---------- Build SA+LCP using slow ----------
+    def build_slow(text):
+        sa_obj = suffixArray(text)
+        sa_obj.construct("slow")
+        sa = deepcopy(sa_obj.sa)
+
+        sa_obj.kasai()
+        lcp = deepcopy(sa_obj.lcp)
+
+        return sa, lcp
 
 
-# # ---------- Single test ----------
-# def test_text(text):
-#     print("\n==============================")
-#     print("TEXT:", repr(text))
-#     print("==============================")
-
-#     start = time.perf_counter()
-#     sa, lcp = build_slow(text)
-#     end = time.perf_counter()
-
-#     print(f"Build time (slow): {end-start:.6f}s")
-
-#     # correctness checks
-#     valid_sa = validate_suffix_array(text, sa)
-#     print("SA lexicographically correct:", valid_sa)
-
-#     uniq = count_unique_substrings(text, sa, lcp)
-#     print("Unique substrings:", uniq)
-
-#     # diagnostics if incorrect
-#     if not valid_sa:
-#         print("\n--- DIAGNOSTIC ---")
-#         print("SA:", sa)
-#         print("LCP:", lcp)
-#         print("Suffixes in SA order:")
-#         for i in sa:
-#             print(text[i:])
+    # ---------- Validate suffix array ----------
+    def validate_suffix_array(text, sa):
+        suffixes = [text[i:] for i in sa]
+        return suffixes == sorted(suffixes)
 
 
-# # ---------- Random generator ----------
-# def random_string(n, alphabet="abcd"):
-#     return "".join(random.choice(alphabet) for _ in range(n))
+    # ---------- Single test ----------
+    def test_text(text):
+        print("\n==============================")
+        print("TEXT:", repr(text))
+        print("==============================")
+
+        start = time.perf_counter()
+        sa, lcp = build_slow(text)
+        end = time.perf_counter()
+
+        print(f"Build time (slow): {end-start:.6f}s")
+
+        # correctness checks
+        valid_sa = validate_suffix_array(text, sa)
+        print("SA lexicographically correct:", valid_sa)
+
+        uniq = count_unique_substrings(text, sa, lcp)
+        print("Unique substrings:", uniq)
+
+        # diagnostics if incorrect
+        if not valid_sa:
+            print("\n--- DIAGNOSTIC ---")
+            print("SA:", sa)
+            print("LCP:", lcp)
+            print("Suffixes in SA order:")
+            for i in sa:
+                print(text[i:])
 
 
-# # ---------- Main test suite ----------
-# def main():
-#     test_cases = [
-#         "",
-#         "a",
-#         "aaaaa",
-#         "banana",
-#         "abracadabra",
-#         "mississippi",
-#         "abababab",
-#         "abcde",
-#         "zyxwv",
-#         "panamabananas",
-#     ]
-
-#     # random tests
-#     for _ in range(5):
-#         test_cases.append(random_string(20))
-
-#     for text in test_cases:
-#         if len(text) == 0:
-#             continue
-#         test_text(text)
-
-#     # performance scaling of slow method
-#     print("\n===== PERFORMANCE SCALING (slow only) =====")
-#     for n in [10, 20, 40, 80, 120]:
-#         text = random_string(n)
-#         start = time.perf_counter()
-#         build_slow(text)
-#         end = time.perf_counter()
-#         print(f"Length {n:>3}: {end-start:.6f}s")
+    # ---------- Random generator ----------
+    def random_string(n, alphabet="abcd"):
+        return "".join(random.choice(alphabet) for _ in range(n))
 
 
-# if __name__ == "__main__":
-#     main()
+    test_cases = [
+        "",
+        "a",
+        "aaaaa",
+        "banana",
+        "abracadabra",
+        "mississippi",
+        "abababab",
+        "abcde",
+        "zyxwv",
+        "panamabananas",
+    ]
+
+    # random tests
+    for _ in range(5):
+        test_cases.append(random_string(20))
+
+    for text in test_cases:
+        if len(text) == 0:
+            continue
+        test_text(text)
+
+    # performance scaling of slow method
+    print("\n===== PERFORMANCE SCALING (slow only) =====")
+    for n in [10, 20, 40, 80, 120]:
+        text = random_string(n)
+        start = time.perf_counter()
+        build_slow(text)
+        end = time.perf_counter()
+        print(f"Length {n:>3}: {end-start:.6f}s")
+
+
+if __name__ == "__main__":
+    main()

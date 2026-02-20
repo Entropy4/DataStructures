@@ -56,84 +56,84 @@ class fenwickTreeRangeQueryPointUpdate:
         return str(self.tree)
 
 
-# # testing
-# def main():
-#     print("=== Fenwick Tree Test ===")
+# testing
+def main():
+    print("=== Fenwick Tree Test ===")
 
-#     # IMPORTANT: Fenwick tree is 1-indexed.
-#     # So we insert dummy 0 at index 0.
-#     values = [0, 3, 2, -1, 6, 5, 4, -3, 3, 7, 2, 3]
+    # IMPORTANT: Fenwick tree is 1-indexed.
+    # So we insert dummy 0 at index 0.
+    values = [0, 3, 2, -1, 6, 5, 4, -3, 3, 7, 2, 3]
     
-#     # Keep brute-force reference copy
-#     reference = values.copy()
+    # Keep brute-force reference copy
+    reference = values.copy()
 
-#     ft = fenwickTreeRangeQueryPointUpdate(values)
+    ft = fenwickTreeRangeQueryPointUpdate(values)
 
-#     print("Initial values:", values)
-#     print("Initial Tree:", ft)
+    print("Initial values:", values)
+    print("Initial Tree:", ft)
 
-#     # ---------------- PREFIX SUM TEST ----------------
-#     print("\nTesting prefix sums...")
-#     for i in range(1, len(reference)):
-#         expected = sum(reference[1:i+1])
-#         actual = ft.prefixSum(i)
-#         print(f"prefixSum({i}) = {actual}, expected = {expected}")
-#         assert actual == expected
+    # ---------------- PREFIX SUM TEST ----------------
+    print("\nTesting prefix sums...")
+    for i in range(1, len(reference)):
+        expected = sum(reference[1:i+1])
+        actual = ft.prefixSum(i)
+        print(f"prefixSum({i}) = {actual}, expected = {expected}")
+        assert actual == expected
 
-#     # ---------------- RANGE SUM TEST ----------------
-#     print("\nTesting range sums...")
-#     test_ranges = [(1,3), (2,5), (4,10), (1,10), (6,6)]
+    # ---------------- RANGE SUM TEST ----------------
+    print("\nTesting range sums...")
+    test_ranges = [(1,3), (2,5), (4,10), (1,10), (6,6)]
     
-#     for l, r in test_ranges:
-#         expected = sum(reference[l:r+1])
-#         actual = ft.rangeSum(l, r)
-#         print(f"rangeSum({l},{r}) = {actual}, expected = {expected}")
-#         assert actual == expected
+    for l, r in test_ranges:
+        expected = sum(reference[l:r+1])
+        actual = ft.rangeSum(l, r)
+        print(f"rangeSum({l},{r}) = {actual}, expected = {expected}")
+        assert actual == expected
 
-#     # ---------------- GET TEST ----------------
-#     print("\nTesting get()...")
-#     for i in range(1, len(reference)):
-#         expected = reference[i]
-#         actual = ft.get(i)
-#         print(f"get({i}) = {actual}, expected = {expected}")
-#         assert actual == expected
+    # ---------------- GET TEST ----------------
+    print("\nTesting get()...")
+    for i in range(1, len(reference)):
+        expected = reference[i]
+        actual = ft.get(i)
+        print(f"get({i}) = {actual}, expected = {expected}")
+        assert actual == expected
 
-#     # ---------------- ADD TEST ----------------
-#     print("\nTesting add()...")
-#     ft.add(3, 5)
-#     reference[3] += 5
+    # ---------------- ADD TEST ----------------
+    print("\nTesting add()...")
+    ft.add(3, 5)
+    reference[3] += 5
 
-#     ft.add(7, -2)
-#     reference[7] -= 2
+    ft.add(7, -2)
+    reference[7] -= 2
 
-#     for i in range(1, len(reference)):
-#         assert ft.get(i) == reference[i]
+    for i in range(1, len(reference)):
+        assert ft.get(i) == reference[i]
 
-#     print("Add updates verified.")
+    print("Add updates verified.")
 
-#     # ---------------- SET TEST ----------------
-#     print("\nTesting set()...")
-#     ft.set(5, 20)
-#     reference[5] = 20
+    # ---------------- SET TEST ----------------
+    print("\nTesting set()...")
+    ft.set(5, 20)
+    reference[5] = 20
 
-#     ft.set(1, -4)
-#     reference[1] = -4
+    ft.set(1, -4)
+    reference[1] = -4
 
-#     for i in range(1, len(reference)):
-#         assert ft.get(i) == reference[i]
+    for i in range(1, len(reference)):
+        assert ft.get(i) == reference[i]
 
-#     print("Set updates verified.")
+    print("Set updates verified.")
 
-#     # ---------------- FINAL RANGE CHECK ----------------
-#     print("\nFinal full validation...")
-#     for l in range(1, len(reference)):
-#         for r in range(l, len(reference)):
-#             expected = sum(reference[l:r+1])
-#             actual = ft.rangeSum(l, r)
-#             assert actual == expected
+    # ---------------- FINAL RANGE CHECK ----------------
+    print("\nFinal full validation...")
+    for l in range(1, len(reference)):
+        for r in range(l, len(reference)):
+            expected = sum(reference[l:r+1])
+            actual = ft.rangeSum(l, r)
+            assert actual == expected
 
-#     print("🎉 All tests passed successfully!")
+    print("🎉 All tests passed successfully!")
 
 
-# if __name__ == "__main__":
-#     main()
+if __name__ == "__main__":
+    main()

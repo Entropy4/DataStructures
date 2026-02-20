@@ -55,19 +55,20 @@ class Stack:
         s += '] <- top'
         return s
 
-# # testing
-# def main():
-#     st1 = Stack()
-#     st2 = Stack([1,2,3])
-#     print(f'sizes {st1.size()}, {st2.size()}')
-#     print(f'isEmpty? {st1.isEmpty()}, {st2.isEmpty()}')
-#     print(st1)
-#     print(st2)
-#     st1.push(-1)
-#     st2.pop()
-#     print(f'peek st2: {st2.peek()}')
-#     print(st1)
-#     print(st2)
+# testing
+def main():
+    st1 = Stack()
+    st2 = Stack([1,2,3])
+    print(f'sizes {st1.size()}, {st2.size()}')
+    print(f'isEmpty? {st1.isEmpty()}, {st2.isEmpty()}')
+    print(st1)
+    print(st2)
+    st1.push(-1)
+    st2.pop()
+    print(f'peek st2: {st2.peek()}')
+    print(st1)
+    print(st2)
 
-# main()
+if __name__ == "__main__":
+    main()
 

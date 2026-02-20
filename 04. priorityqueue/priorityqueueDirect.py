@@ -70,70 +70,71 @@ class BinaryHeap:
         return data
     
 
+# Testing code
+def main():
+    print("Creating empty heap")
+    h = BinaryHeap()
+    print("Empty?", h.isEmpty())
+    print("Size:", h.size())
+    print()
 
-# def main():
-#     print("Creating empty heap")
-#     h = BinaryHeap()
-#     print("Empty?", h.isEmpty())
-#     print("Size:", h.size())
-#     print()
+    print("Adding elements: 5, 3, 8, 1, 6")
+    h.add(5)
+    h.add(3)
+    h.add(8)
+    h.add(1)
+    h.add(6)
+    print("Heap data:", h.heap)
+    print("Size:", h.size())
+    print("Empty?", h.isEmpty())
+    print("Peek (min):", h.peek())
+    print()
 
-#     print("Adding elements: 5, 3, 8, 1, 6")
-#     h.add(5)
-#     h.add(3)
-#     h.add(8)
-#     h.add(1)
-#     h.add(6)
-#     print("Heap data:", h.heap)
-#     print("Size:", h.size())
-#     print("Empty?", h.isEmpty())
-#     print("Peek (min):", h.peek())
-#     print()
+    print("Polling elements (should be ascending):")
+    while not h.isEmpty():
+        print("Polled:", h.poll())
+        print("Heap:", h.heap)
+    print()
 
-#     print("Polling elements (should be ascending):")
-#     while not h.isEmpty():
-#         print("Polled:", h.poll())
-#         print("Heap:", h.heap)
-#     print()
+    print("Rebuilding heap from initial data [7, 2, 9, 4, 1]")
+    h = BinaryHeap([7, 2, 9, 4, 1])
+    print("Heapified data:", h.heap)
+    print("Peek (min):", h.peek())
+    print()
 
-#     print("Rebuilding heap from initial data [7, 2, 9, 4, 1]")
-#     h = BinaryHeap([7, 2, 9, 4, 1])
-#     print("Heapified data:", h.heap)
-#     print("Peek (min):", h.peek())
-#     print()
+    print("Contains checks:")
+    print("Contains 4?", h.contains(4))
+    print("Contains 10?", h.contains(10))
+    print()
 
-#     print("Contains checks:")
-#     print("Contains 4?", h.contains(4))
-#     print("Contains 10?", h.contains(10))
-#     print()
+    print("Removing element 4")
+    print("Removed?", h.remove(4))
+    print("Heap:", h.heap)
+    print()
 
-#     print("Removing element 4")
-#     print("Removed?", h.remove(4))
-#     print("Heap:", h.heap)
-#     print()
+    print("Removing non-existent element 100")
+    print("Removed?", h.remove(100))
+    print("Heap:", h.heap)
+    print()
 
-#     print("Removing non-existent element 100")
-#     print("Removed?", h.remove(100))
-#     print("Heap:", h.heap)
-#     print()
+    print("Removing element at index 0 (min)")
+    removed = h.removeAt(0)
+    print("Removed:", removed)
+    print("Heap:", h.heap)
+    print()
 
-#     print("Removing element at index 0 (min)")
-#     removed = h.removeAt(0)
-#     print("Removed:", removed)
-#     print("Heap:", h.heap)
-#     print()
+    print("Clearing heap")
+    h.clear()
+    print("Heap:", h.heap)
+    print("Empty?", h.isEmpty())
 
-#     print("Clearing heap")
-#     h.clear()
-#     print("Heap:", h.heap)
-#     print("Empty?", h.isEmpty())
+    # Uncomment to test error cases
+    # h.peek()          # IndexError on empty heap
+    # h.poll()          # IndexError on empty heap
+    # h.add(None)       # ValueError
 
-#     # Uncomment to test error cases
-#     # h.peek()          # IndexError on empty heap
-#     # h.poll()          # IndexError on empty heap
-#     # h.add(None)       # ValueError
-
-# main()
+if __name__ == "__main__":
+    main()
 
 
     

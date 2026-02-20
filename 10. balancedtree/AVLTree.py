@@ -263,157 +263,158 @@ class AVLTree:
     
 
 
-# # testing code
-# def check_avl_balance(node):
-#     """
-#     Recursively verify AVL property:
-#     - height is correct
-#     - balance factor is correct
-#     - |bf| <= 1
-#     Returns (is_balanced, height)
-#     """
-#     if node is None:
-#         return True, -1
+# testing code
+def main():
 
-#     left_ok, left_h = check_avl_balance(node.left)
-#     right_ok, right_h = check_avl_balance(node.right)
+    def check_avl_balance(node):
+        """
+        Recursively verify AVL property:
+        - height is correct
+        - balance factor is correct
+        - |bf| <= 1
+        Returns (is_balanced, height)
+        """
+        if node is None:
+            return True, -1
 
-#     expected_height = 1 + max(left_h, right_h)
-#     expected_bf = right_h - left_h
+        left_ok, left_h = check_avl_balance(node.left)
+        right_ok, right_h = check_avl_balance(node.right)
 
-#     node_ok = (
-#         left_ok and
-#         right_ok and
-#         node.height == expected_height and
-#         node.bf == expected_bf and
-#         abs(node.bf) <= 1
-#     )
+        expected_height = 1 + max(left_h, right_h)
+        expected_bf = right_h - left_h
 
-#     return node_ok, expected_height
+        node_ok = (
+            left_ok and
+            right_ok and
+            node.height == expected_height and
+            node.bf == expected_bf and
+            abs(node.bf) <= 1
+        )
 
-
-# def inorder_list(tree: AVLTree):
-#     """Return elements using iterator traversal."""
-#     it = tree.traverse()
-#     result = []
-#     while it.hasNext():
-#         result.append(it.next())
-#     return result
+        return node_ok, expected_height
 
 
-# def print_test(title):
-#     print("\n" + "="*60)
-#     print(title)
-#     print("="*60)
+    def inorder_list(tree: AVLTree):
+        """Return elements using iterator traversal."""
+        it = tree.traverse()
+        result = []
+        while it.hasNext():
+            result.append(it.next())
+        return result
 
 
-# def main():
-#     # ---------- Basic insertion ----------
-#     print_test("Basic Insertions")
-#     avl = AVLTree()
-#     values = [10, 20, 30, 40, 50, 25]
-#     for v in values:
-#         avl.insert(v)
-#         print(f"Inserted {v}")
-#         print(avl)
-
-#     print("Size:", avl.size())
-#     print("Height:", avl.height())
-#     print("Contains 25:", avl.contains(25))
-#     print("Contains 99:", avl.contains(99))
-#     balanced, _ = check_avl_balance(avl.root)
-#     print("AVL balanced:", balanced)
-#     print("Inorder:", inorder_list(avl))
-
-#     # ---------- Duplicate insertion ----------
-#     print_test("Duplicate Insert")
-#     print("Insert 25 again:", avl.insert(25))
-#     print("Size (should be unchanged):", avl.size())
-
-#     # ---------- Rotation tests ----------
-#     # LL rotation
-#     print_test("LL Rotation Test")
-#     ll = AVLTree()
-#     for v in [30, 20, 10]:
-#         ll.insert(v)
-#     print(ll)
-#     balanced, _ = check_avl_balance(ll.root)
-#     print("AVL balanced:", balanced)
-
-#     # RR rotation
-#     print_test("RR Rotation Test")
-#     rr = AVLTree()
-#     for v in [10, 20, 30]:
-#         rr.insert(v)
-#     print(rr)
-#     balanced, _ = check_avl_balance(rr.root)
-#     print("AVL balanced:", balanced)
-
-#     # LR rotation
-#     print_test("LR Rotation Test")
-#     lr = AVLTree()
-#     for v in [30, 10, 20]:
-#         lr.insert(v)
-#     print(lr)
-#     balanced, _ = check_avl_balance(lr.root)
-#     print("AVL balanced:", balanced)
-
-#     # RL rotation
-#     print_test("RL Rotation Test")
-#     rl = AVLTree()
-#     for v in [10, 30, 20]:
-#         rl.insert(v)
-#     print(rl)
-#     balanced, _ = check_avl_balance(rl.root)
-#     print("AVL balanced:", balanced)
-
-#     # ---------- Removal tests ----------
-#     print_test("Removal Tests")
-#     avl2 = AVLTree()
-#     for v in [50, 30, 70, 20, 40, 60, 80]:
-#         avl2.insert(v)
-#     print("Initial tree:")
-#     print(avl2)
-
-#     # remove leaf
-#     print("\nRemove leaf 20")
-#     avl2.remove(20)
-#     print(avl2)
-
-#     # remove node with one child
-#     print("\nRemove node with one child 30")
-#     avl2.remove(30)
-#     print(avl2)
-
-#     # remove node with two children
-#     print("\nRemove node with two children 70")
-#     avl2.remove(70)
-#     print(avl2)
-
-#     # remove root
-#     print("\nRemove root 50")
-#     avl2.remove(50)
-#     print(avl2)
-
-#     print("Size:", avl2.size())
-#     balanced, _ = check_avl_balance(avl2.root)
-#     print("AVL balanced:", balanced)
-#     print("Inorder:", inorder_list(avl2))
-
-#     # ---------- Iterator correctness ----------
-#     print_test("Iterator Sorted Order Check")
-#     arr = inorder_list(avl2)
-#     print("Iterator output:", arr)
-#     print("Sorted:", arr == sorted(arr))
-
-#     # ---------- Empty tree ----------
-#     print_test("Empty Tree Checks")
-#     empty = AVLTree()
-#     print("Is empty:", empty.isEmpty())
-#     print("Size:", empty.size())
-#     print("Height:", empty.height())
-#     print("Remove from empty:", empty.remove(10))
+    def print_test(title):
+        print("\n" + "="*60)
+        print(title)
+        print("="*60)
 
 
-# if __name__ == "__main__":
-#     main()
+    # ---------- Basic insertion ----------
+    print_test("Basic Insertions")
+    avl = AVLTree()
+    values = [10, 20, 30, 40, 50, 25]
+    for v in values:
+        avl.insert(v)
+        print(f"Inserted {v}")
+        print(avl)
+
+    print("Size:", avl.size())
+    print("Height:", avl.height())
+    print("Contains 25:", avl.contains(25))
+    print("Contains 99:", avl.contains(99))
+    balanced, _ = check_avl_balance(avl.root)
+    print("AVL balanced:", balanced)
+    print("Inorder:", inorder_list(avl))
+
+    # ---------- Duplicate insertion ----------
+    print_test("Duplicate Insert")
+    print("Insert 25 again:", avl.insert(25))
+    print("Size (should be unchanged):", avl.size())
+
+    # ---------- Rotation tests ----------
+    # LL rotation
+    print_test("LL Rotation Test")
+    ll = AVLTree()
+    for v in [30, 20, 10]:
+        ll.insert(v)
+    print(ll)
+    balanced, _ = check_avl_balance(ll.root)
+    print("AVL balanced:", balanced)
+
+    # RR rotation
+    print_test("RR Rotation Test")
+    rr = AVLTree()
+    for v in [10, 20, 30]:
+        rr.insert(v)
+    print(rr)
+    balanced, _ = check_avl_balance(rr.root)
+    print("AVL balanced:", balanced)
+
+    # LR rotation
+    print_test("LR Rotation Test")
+    lr = AVLTree()
+    for v in [30, 10, 20]:
+        lr.insert(v)
+    print(lr)
+    balanced, _ = check_avl_balance(lr.root)
+    print("AVL balanced:", balanced)
+
+    # RL rotation
+    print_test("RL Rotation Test")
+    rl = AVLTree()
+    for v in [10, 30, 20]:
+        rl.insert(v)
+    print(rl)
+    balanced, _ = check_avl_balance(rl.root)
+    print("AVL balanced:", balanced)
+
+    # ---------- Removal tests ----------
+    print_test("Removal Tests")
+    avl2 = AVLTree()
+    for v in [50, 30, 70, 20, 40, 60, 80]:
+        avl2.insert(v)
+    print("Initial tree:")
+    print(avl2)
+
+    # remove leaf
+    print("\nRemove leaf 20")
+    avl2.remove(20)
+    print(avl2)
+
+    # remove node with one child
+    print("\nRemove node with one child 30")
+    avl2.remove(30)
+    print(avl2)
+
+    # remove node with two children
+    print("\nRemove node with two children 70")
+    avl2.remove(70)
+    print(avl2)
+
+    # remove root
+    print("\nRemove root 50")
+    avl2.remove(50)
+    print(avl2)
+
+    print("Size:", avl2.size())
+    balanced, _ = check_avl_balance(avl2.root)
+    print("AVL balanced:", balanced)
+    print("Inorder:", inorder_list(avl2))
+
+    # ---------- Iterator correctness ----------
+    print_test("Iterator Sorted Order Check")
+    arr = inorder_list(avl2)
+    print("Iterator output:", arr)
+    print("Sorted:", arr == sorted(arr))
+
+    # ---------- Empty tree ----------
+    print_test("Empty Tree Checks")
+    empty = AVLTree()
+    print("Is empty:", empty.isEmpty())
+    print("Size:", empty.size())
+    print("Height:", empty.height())
+    print("Remove from empty:", empty.remove(10))
+
+
+if __name__ == "__main__":
+    main()

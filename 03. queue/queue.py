@@ -44,55 +44,56 @@ class Queue:
         s += '] <- back'
         return s
     
-# # testing
-# def main():
-#     q = Queue(max_size=3)
+# testing
+def main():
+    q = Queue(max_size=3)
 
-#     print("Initial queue:")
-#     print(q)
-#     print("Empty?", q.isEmpty())
-#     print("Full?", q.isFull())
-#     print()
+    print("Initial queue:")
+    print(q)
+    print("Empty?", q.isEmpty())
+    print("Full?", q.isFull())
+    print()
 
-#     print("Offering elements 10, 20, 30")
-#     q.offer(10)
-#     q.offer(20)
-#     q.offer(30)
-#     print(q)
-#     print("Size:", q.size())
-#     print("Empty?", q.isEmpty())
-#     print("Full?", q.isFull())
-#     print("Peek:", q.peek())
-#     print()
+    print("Offering elements 10, 20, 30")
+    q.offer(10)
+    q.offer(20)
+    q.offer(30)
+    print(q)
+    print("Size:", q.size())
+    print("Empty?", q.isEmpty())
+    print("Full?", q.isFull())
+    print("Peek:", q.peek())
+    print()
 
-#     print("Polling one element:")
-#     removed = q.poll()
-#     print("Removed:", removed)
-#     print(q)
-#     print("Size:", q.size())
-#     print()
+    print("Polling one element:")
+    removed = q.poll()
+    print("Removed:", removed)
+    print(q)
+    print("Size:", q.size())
+    print()
 
-#     print("Offering element 40")
-#     q.offer(40)
-#     print(q)
-#     print()
+    print("Offering element 40")
+    q.offer(40)
+    print(q)
+    print()
 
-#     print("Polling all elements:")
-#     while not q.isEmpty():
-#         print("Polled:", q.poll())
-#         print(q)
-#     print()
+    print("Polling all elements:")
+    while not q.isEmpty():
+        print("Polled:", q.poll())
+        print(q)
+    print()
 
-#     print("Final queue:")
-#     print(q)
-#     print("Empty?", q.isEmpty())
+    print("Final queue:")
+    print(q)
+    print("Empty?", q.isEmpty())
 
-#     # Uncomment these one at a time to test error cases
-#     # q.poll()          # should raise RuntimeError (empty)
-#     # q.peek()          # should raise RuntimeError (empty)
-#     # q.offer(50)
-#     # q.offer(60)
-#     # q.offer(70)
-#     # q.offer(80)       # should raise RuntimeError (full)
+    # Uncomment these one at a time to test error cases
+    # q.poll()          # should raise RuntimeError (empty)
+    # q.peek()          # should raise RuntimeError (empty)
+    # q.offer(50)
+    # q.offer(60)
+    # q.offer(70)
+    # q.offer(80)       # should raise RuntimeError (full)
 
-# main()
+if __name__ == "__main__":
+    main()

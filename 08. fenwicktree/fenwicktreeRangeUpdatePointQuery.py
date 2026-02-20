@@ -61,64 +61,67 @@ class fenwickTreeRangeUpdatePointQuery:
         return f"Current Tree: {self.currentTree} \nOriginal Tree: {self.originalTree}"
 
 
-# # testing
-# def main():
-#     print("=== Fenwick Tree (Range Update, Point Query) Test ===")
+# testing
+def main():
+    print("=== Fenwick Tree (Range Update, Point Query) Test ===")
 
-#     # 1-indexed input array
-#     values = [0, 5, 3, 7, 9, 6, 2, 1, 8]
-#     reference = values.copy()
+    # 1-indexed input array
+    values = [0, 5, 3, 7, 9, 6, 2, 1, 8]
+    reference = values.copy()
 
-#     ft = fenwickTreeRangeUpdatePointQuery(values)
+    ft = fenwickTreeRangeUpdatePointQuery(values)
 
-#     print("Initial structure:")
-#     print(ft)
-#     print()
+    print("Initial structure:")
+    print(ft)
+    print()
 
-#     # ---------------- INITIAL GET TEST ----------------
-#     print("Testing initial point queries...")
-#     for i in range(1, len(reference)):
-#         assert ft.get(i) == reference[i]
-#         print(f"get({i}) = {ft.get(i)}")
-#     print("Initial values verified.\n")
+    # ---------------- INITIAL GET TEST ----------------
+    print("Testing initial point queries...")
+    for i in range(1, len(reference)):
+        assert ft.get(i) == reference[i]
+        print(f"get({i}) = {ft.get(i)}")
+    print("Initial values verified.\n")
 
-#     # ---------------- RANGE UPDATE TEST ----------------
-#     print("Applying range updates...")
+    # ---------------- RANGE UPDATE TEST ----------------
+    print("Applying range updates...")
 
-#     updates = [
-#         (2, 5, 10),   # add 10 to indices 2..5
-#         (1, 3, -2),   # subtract 2 from 1..3
-#         (4, 8, 7),    # add 7 to 4..8
-#         (6, 6, -5)    # subtract 5 from index 6
-#     ]
+    updates = [
+        (2, 5, 10),   # add 10 to indices 2..5
+        (1, 3, -2),   # subtract 2 from 1..3
+        (4, 8, 7),    # add 7 to 4..8
+        (6, 6, -5)    # subtract 5 from index 6
+    ]
 
-#     for l, r, v in updates:
-#         print(f"updateRange({l}, {r}, {v})")
-#         ft.updateRange(l, r, v)
-#         for i in range(l, r+1):
-#             reference[i] += v
+    for l, r, v in updates:
+        print(f"updateRange({l}, {r}, {v})")
+        ft.updateRange(l, r, v)
+        for i in range(l, r+1):
+            reference[i] += v
 
-#     print()
+    print()
 
-#     # ---------------- VERIFY POINT QUERIES ----------------
-#     print("Verifying point queries after updates...")
-#     for i in range(1, len(reference)):
-#         actual = ft.get(i)
-#         expected = reference[i]
-#         print(f"get({i}) = {actual}, expected = {expected}")
-#         assert actual == expected
-#     print("Point queries verified.\n")
+    # ---------------- VERIFY POINT QUERIES ----------------
+    print("Verifying point queries after updates...")
+    for i in range(1, len(reference)):
+        actual = ft.get(i)
+        expected = reference[i]
+        print(f"get({i}) = {actual}, expected = {expected}")
+        assert actual == expected
+    print("Point queries verified.\n")
 
-#     # ---------------- EDGE CASES ----------------
-#     print("Testing edge boundary updates...")
-#     ft.updateRange(1, 1, 100)
-#     reference[1] += 100
+    # ---------------- EDGE CASES ----------------
+    print("Testing edge boundary updates...")
+    ft.updateRange(1, 1, 100)
+    reference[1] += 100
 
-#     ft.updateRange(len(reference)-1, len(reference)-1, -50)
-#     reference[-1] -= 50
+    ft.updateRange(len(reference)-1, len(reference)-1, -50)
+    reference[-1] -= 50
 
-#     for i in range(1, len(reference)):
-#         assert ft.get(i) == reference[i]
-#     print("Edge cases verified.\n")
+    for i in range(1, len(reference)):
+        assert ft.get(i) == reference[i]
+    print("Edge cases verified.\n")
 
-#     print("🎉 All functional tests passed!")
+    print("🎉 All functional tests passed!")
+
+if __name__ == "__main__":
+    main()

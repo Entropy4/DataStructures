@@ -68,59 +68,59 @@ class BinarySearch:
         return -1
 
 
-# # testing
-# import random
+# testing
+import random
 
-# def main():
-#     bs = BinarySearch()
+def main():
+    bs = BinarySearch()
 
-#     test_arrays = [
-#         [],
-#         [1],
-#         [1, 2, 2, 2, 3, 4],
-#         [5, 10, 15, 20, 25],
-#         [1, 3, 5, 7, 9],
-#     ]
+    test_arrays = [
+        [],
+        [1],
+        [1, 2, 2, 2, 3, 4],
+        [5, 10, 15, 20, 25],
+        [1, 3, 5, 7, 9],
+    ]
 
-#     # random sorted arrays
-#     for _ in range(5):
-#         arr = sorted(random.randint(0, 10) for _ in range(random.randint(0, 12)))
-#         test_arrays.append(arr)
+    # random sorted arrays
+    for _ in range(5):
+        arr = sorted(random.randint(0, 10) for _ in range(random.randint(0, 12)))
+        test_arrays.append(arr)
 
-#     targets = [0, 1, 2, 3, 5, 8, 10]
+    targets = [0, 1, 2, 3, 5, 8, 10]
 
-#     tid = 1
-#     for arr in test_arrays:
-#         for t in targets:
-#             s = bs.search(arr, t)
-#             lb = bs.lower_bound(arr, t)
-#             ub = bs.upper_bound(arr, t)
-#             fo = bs.first_occurrence(arr, t)
-#             lo = bs.last_occurrence(arr, t)
+    tid = 1
+    for arr in test_arrays:
+        for t in targets:
+            s = bs.search(arr, t)
+            lb = bs.lower_bound(arr, t)
+            ub = bs.upper_bound(arr, t)
+            fo = bs.first_occurrence(arr, t)
+            lo = bs.last_occurrence(arr, t)
 
-#             # expected
-#             if t in arr:
-#                 ok_search = (s != -1 and arr[s] == t)
-#             else:
-#                 ok_search = (s == -1)
-#             exp_lb = next((i for i,x in enumerate(arr) if x >= t), len(arr))
-#             exp_ub = next((i for i,x in enumerate(arr) if x > t), len(arr))
-#             exp_fo = exp_lb if exp_lb < len(arr) and arr[exp_lb] == t else -1
-#             exp_lo = exp_ub - 1 if exp_ub-1 >= 0 and exp_ub-1 < len(arr) and arr[exp_ub-1] == t else -1
+            # expected
+            if t in arr:
+                ok_search = (s != -1 and arr[s] == t)
+            else:
+                ok_search = (s == -1)
+            exp_lb = next((i for i,x in enumerate(arr) if x >= t), len(arr))
+            exp_ub = next((i for i,x in enumerate(arr) if x > t), len(arr))
+            exp_fo = exp_lb if exp_lb < len(arr) and arr[exp_lb] == t else -1
+            exp_lo = exp_ub - 1 if exp_ub-1 >= 0 and exp_ub-1 < len(arr) and arr[exp_ub-1] == t else -1
 
-#             ok = (ok_search and lb==exp_lb and ub==exp_ub and fo==exp_fo and lo==exp_lo)
+            ok = (ok_search and lb==exp_lb and ub==exp_ub and fo==exp_fo and lo==exp_lo)
 
-#             print(f"Test {tid}: arr={arr}, target={t}")
-#             print(f"  search={s} exp={ok_search}")
-#             print(f"  lower ={lb} exp={exp_lb}")
-#             print(f"  upper ={ub} exp={exp_ub}")
-#             print(f"  first ={fo} exp={exp_fo}")
-#             print(f"  last  ={lo} exp={exp_lo}")
-#             print("  PASS" if ok else "  FAIL", "\n")
+            print(f"Test {tid}: arr={arr}, target={t}")
+            print(f"  search={s} exp={ok_search}")
+            print(f"  lower ={lb} exp={exp_lb}")
+            print(f"  upper ={ub} exp={exp_ub}")
+            print(f"  first ={fo} exp={exp_fo}")
+            print(f"  last  ={lo} exp={exp_lo}")
+            print("  PASS" if ok else "  FAIL", "\n")
 
-#             tid += 1
+            tid += 1
 
-# if __name__ == "__main__":
-#     main()
+if __name__ == "__main__":
+    main()
 
 

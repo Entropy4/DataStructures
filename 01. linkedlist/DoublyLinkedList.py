@@ -234,31 +234,32 @@ class DoublyLinkedList:
         return s
 
 
-# # testing
-# def main():
-#     ls = DoublyLinkedList()
-#     print(ls, ls.sz(), ls.isEmpty())
-#     for i in range(0, 20, 2):
-#         ls.add(i)
-#         print('added ', i)
-#     ls.addFirst(-1)
-#     ls.addLast(22)
-#     ls.addAt(11, 20)
-#     print(ls.peekFirst())
-#     print(ls.peekLast())
-#     print(ls.sz())
-#     print(ls)
+# testing
+def main():
+    ls = DoublyLinkedList()
+    print(ls, ls.sz(), ls.isEmpty())
+    for i in range(0, 20, 2):
+        ls.add(i)
+        print('added ', i)
+    ls.addFirst(-1)
+    ls.addLast(22)
+    ls.addAt(11, 20)
+    print(ls.peekFirst())
+    print(ls.peekLast())
+    print(ls.sz())
+    print(ls)
 
-#     print(ls.removeFirst())
-#     print(ls.removeLast())
-#     print(ls.removeAt(5))
-#     print('removed 20?', ls.remove(20))
-#     print(ls)
-#     print('contains 20?', ls.contains(20))
-#     print(ls)
-#     print("is it empty now", ls.isEmpty())
-#     ls.clear()
-#     print(ls)
-#     print("is it empty now", ls.isEmpty())
+    print(ls.removeFirst())
+    print(ls.removeLast())
+    print(ls.removeAt(5))
+    print('removed 20?', ls.remove(20))
+    print(ls)
+    print('contains 20?', ls.contains(20))
+    print(ls)
+    print("is it empty now", ls.isEmpty())
+    ls.clear()
+    print(ls)
+    print("is it empty now", ls.isEmpty())
     
-# main()
+if __name__ == "__main__":
+    main()
