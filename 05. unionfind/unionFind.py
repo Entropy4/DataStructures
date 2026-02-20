@@ -1,4 +1,4 @@
-class unionFind:
+class UnionFind:
     
     
 
@@ -85,7 +85,7 @@ class unionFind:
 # testing
 def main():
     print("=== Creating UnionFind with 10 elements (0–9) ===")
-    uf = unionFind(10)
+    uf = UnionFind(10)
 
     print("Initial number of components:", uf.components())
     print()
