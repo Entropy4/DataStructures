@@ -7,6 +7,9 @@ class Knapsack_01:
     @return The maximum achievable profit of selecting a subset of the elements such that the
         capacity of the knapsack is not exceeded    
     """
+    # Time complexity: O(n * capacity) 
+    #       where, n         -> number of items
+    #       and, capacity    -> max capacity of knapsack
     def knapsack(capacity:int, W:list, V:list) -> tuple[int, list[int]]:
         N = len(W)
 
