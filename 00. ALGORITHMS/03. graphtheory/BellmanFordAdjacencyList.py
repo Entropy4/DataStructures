@@ -1,6 +1,8 @@
 # An implementation of the Bellman-Ford algorithm. The algorithm finds the shortest path between a
 # starting node and all other nodes in the graph. The algorithm also detects negative cycles.
 class BellmanFordAdjacencyList:
+    # Time complexity:      O(E * V)
+    # Space complexity:     O(V)
     class Edge:
         def __init__(self, fro:int, to:int, cost:int):
             self.fro = fro
@@ -28,7 +30,7 @@ class BellmanFordAdjacencyList:
         self.dist[start] = 0
 
         # For each vertex, apply relaxation for all the edges
-        for i in range(V-1):
+        for num_hops in range(V-1):    # indicates increasing no. of allowed hops
             for edges in self.graph:
                 for edge in edges:
                     if self.dist[edge.fro] + edge.cost < self.dist[edge.to]:
@@ -37,7 +39,7 @@ class BellmanFordAdjacencyList:
         # Run algorithm a second time to detect which nodes are part
         # of a negative cycle. A negative cycle has occurred if we
         # can find a better path beyond the optimal solution.
-        for i in range(V-1):
+        for num_hops in range(V-1):    # indicates increasing no. of allowed hops
             for edges in self.graph:
                 for edge in edges:
                     if self.dist[edge.fro] + edge.cost < self.dist[edge.to]:

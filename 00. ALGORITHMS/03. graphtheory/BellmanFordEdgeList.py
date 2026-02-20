@@ -1,4 +1,8 @@
+# An implementation of the Bellman-Ford algorithm. The algorithm finds the shortest path between a
+# starting node and all other nodes in the graph. The algorithm also detects negative cycles.
 class BellmanFordEdgeList:
+    # Time complexity:      O(E * V)
+    # Space complexity:     O(V)
     class Edge:
         def __init__(self, fro:int, to:int, cost:int):
             self.fro = fro
@@ -14,7 +18,7 @@ class BellmanFordEdgeList:
         # relax an edge, this means we have reached the optimal solution early.
         relaxedAnEdge = True
         # For each vertex, apply relaxation for all the edges
-        for v in range(V-1):
+        for num_hops in range(V-1):     # indicates increasing no. of allowed hops
             if not relaxedAnEdge: break
             relaxedAnEdge = False
             for edge in edges:
@@ -26,7 +30,7 @@ class BellmanFordEdgeList:
         # of a negative cycle. A negative cycle has occurred if we
         # can find a better path beyond the optimal solution.
         relaxedAnEdge = True
-        for v in range(V-1):
+        for num_hops in range(V-1):     # indicates increasing no. of allowed hops
             if not relaxedAnEdge: break
             relaxedAnEdge = False
             for edge in edges:
