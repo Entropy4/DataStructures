@@ -13,7 +13,7 @@ class DijkstrasShortestPathAdjacencyList:
     # global counter to indicate their order of entering the heap
     _counter = 0
 
-    def __init__(self, graph:list):
+    def __init__(self, graph:list[list[Edge]]):
         self.n = len(graph)
         self.graph = graph
         self.dist = []
@@ -25,7 +25,7 @@ class DijkstrasShortestPathAdjacencyList:
     @return An array of nodes indexes of the shortest path from 'start' to 'end'. If 'start' and
     'end' are not connected then an empty array is returned.
     """
-    def reconstructPath(self, start:int, end:int) -> list:
+    def reconstructPath(self, start:int, end:int) -> list[int]:
         dist = self.dijkstra(start, end)
         path = []
         if dist == float('inf'): return path
@@ -40,10 +40,10 @@ class DijkstrasShortestPathAdjacencyList:
     """
     Reconstruct shortest paths from 'start' to all vertices.
 
-    @return A list where paths[v] is the shortest path from start to v.
-            If v is unreachable, paths[v] = [].
+    @return A list where all_paths[v] is the shortest path from start to v.
+            If v is unreachable, all_paths[v] = [].
     """
-    def reconstructAllPaths(self, start:int) -> list:
+    def reconstructAllPaths(self, start:int) -> list[list[int]]:
         self.dijkstraAll(start)
         all_paths = [[] for _ in range(self.n)]
 
@@ -67,11 +67,11 @@ class DijkstrasShortestPathAdjacencyList:
     starting node and the destination node the returned value is set to be
     float('inf').
     """
-    def dijkstra(self, start:int, end:int):
+    def dijkstra(self, start:int, end:int) -> int|float:
         self._dijkstra_internal(start, end)
         return self.dist[end]
 
-    def dijkstraAll(self, start:int):
+    def dijkstraAll(self, start:int) -> list[int|float]:
         self._dijkstra_internal(start, None)
         return self.dist
 

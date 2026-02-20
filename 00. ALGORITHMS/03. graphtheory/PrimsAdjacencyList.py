@@ -17,7 +17,7 @@ class PrimsAdjacencyList:
             self.to = to
             self.cost = cost
     
-    def __init__(self, graph:list):
+    def __init__(self, graph:list[list[Edge]]):
         self.n = len(graph)
         self.graph = graph
 

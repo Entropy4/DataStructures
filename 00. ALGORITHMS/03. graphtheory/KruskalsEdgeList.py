@@ -77,7 +77,7 @@ class KruskalsEdgeList:
             self.to = to
             self.cost = cost
     
-    def __init__(self, graph:list):
+    def __init__(self, graph:list[list[Edge]]):
         self.n = len(graph)
         self.graph = graph
         
@@ -113,7 +113,7 @@ class KruskalsEdgeList:
      # ---------------------GRAPH RELATED------------------------------
 
     # Initialize an empty adjacency list that can hold up to n nodes.
-    def createEmptyGraph(self, n:int) -> list:
+    def createEmptyGraph(self, n:int) -> list[list]:
         graph = [[] for _ in range(n)]
         return graph
 

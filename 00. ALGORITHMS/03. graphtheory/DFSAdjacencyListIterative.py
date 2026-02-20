@@ -9,13 +9,11 @@ class DFSAdjacencyListIterative:
             self.to = to
             self.cost = cost
 
-    def __init__(self):
-        pass
 
     # Perform a depth first search on a graph with n nodes
     # from a starting point to count the number of nodes
     # in a given component.
-    def dfs(self, graph:list, start:int, n:int) -> int:
+    def dfs(self, graph:list[list[Edge]], start:int, n:int) -> int:
         # 'graph' is a Map of Int (node label) x ['List of Edges' == Vertices]
         # trying with list, and expecting index to work as label
         count = 0
@@ -38,7 +36,7 @@ class DFSAdjacencyListIterative:
         return count
 
     # topologically sorts the graph nodes. O(V + E) Time complexity
-    def topologicalSort(self, graph:list, n:int) -> list:
+    def topologicalSort(self, graph:list[list[Edge]], n:int) -> list[int]:
         visited = [False] * n
         order = []
         for i in range(n):
@@ -48,7 +46,7 @@ class DFSAdjacencyListIterative:
         order.reverse()
         return order
     
-    def _dfs_topsort(self, graph:list, start:int, n:int, visited:list, order:list):
+    def _dfs_topsort(self, graph:list, start:int, n:int, visited:list, order:list[int]):
         stack = deque()
         visited[start] = True
         stack.append((start, 0))
@@ -76,7 +74,7 @@ class DFSAdjacencyListIterative:
     # ---------------------GRAPH RELATED------------------------------
 
     # Initialize an empty adjacency list that can hold up to n nodes.
-    def createEmptyGraph(self, n:int) -> list:
+    def createEmptyGraph(self, n:int) -> list[list]:
         graph = [[] for _ in range(n)]
         return graph
 

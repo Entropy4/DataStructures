@@ -10,7 +10,7 @@ class BFSAdjacencyListIterative:
             self.cost = cost
 
     # 'graph' is a List of 'List of Edges' == List of Vertices
-    def __init__(self, graph:list): 
+    def __init__(self, graph:list[list[Edge]]): 
         self.n = len(graph)
         self.graph = graph
         self.prev = None    # stores a list of int; 
@@ -23,7 +23,7 @@ class BFSAdjacencyListIterative:
     @return An array of nodes' indexes of the shortest path from 'start' to 'end'. If 'start' and
     'end' are not connected then an empty array is returned.
     """ 
-    def reconstructPath(self, start:int, end:int) -> list:
+    def reconstructPath(self, start:int, end:int) -> list[int]:
         self.bfs(start)
         path = []
         at = end
@@ -69,7 +69,7 @@ class BFSAdjacencyListIterative:
     # ---------------------GRAPH RELATED------------------------------
 
     # Initialize an empty adjacency list that can hold up to n nodes.
-    def createEmptyGraph(self, n:int) -> list:
+    def createEmptyGraph(self, n:int) -> list[list]:
         graph = [[] for _ in range(n)]
         return graph
 
